@@ -1,0 +1,98 @@
+history
+sudo apt-get update
+sudo apt-get install -y ca-certificates curl gnupg
+sudo mkdir -p /etc/apt/keyrings
+curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
+NODE_MAJOR=20
+echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list
+sudo apt-get update
+sudo apt-get install nodejs -y
+node -v
+npm i aptos
+sudo npm install -g pnpm
+sudo apt install python3-pip
+pip3 install aptos-sdk
+git clone https://github.com/aptos-labs/aptos-core.git
+curl -fsSL "https://aptos.dev/scripts/install_cli.py" | python3
+
+#NOTE: fullly qualify path for aptos via environemnt varible or in command line!
+
+#/home/ubuntu/.local/bin/aptos
+
+cd ~/aptos-core/ecosystem/typescript/sdk/examples/typescript
+pnpm install
+
+
+pnpm your_fungible_asset ~/aptos-core/aptos-move/move-examples/fungible_asset/fa_coin
+
+
+
+
+ubuntu@ip-172-31-36-63:~/aptos-core/ecosystem/typescript/sdk/examples/typescript$ pnpm your_fungible_asset ~/aptos-core/aptos-move/move-examples/fungible_asset/fa_coin
+
+> ts-test@1.0.0 your_fungible_asset /home/ubuntu/aptos-core/ecosystem/typescript/sdk/examples/typescript
+> ts-node your_fungible_asset.ts "/home/ubuntu/aptos-core/aptos-move/move-examples/fungible_asset/fa_coin"
+
+
+=== Addresses ===
+Alice: 0x0cd38741e80d794772fc5890e39f2b9d2d3f28246489960b790d7b4d270ab6b5
+Bob: 0xa5f1bf7e7826f356518ef77eecf31ba10e01d0a2d8fc587b1999774aab30e09b
+Charlie: 0x377032ee04f262f06ba14514a1449ef62fbbda6231b463120b08b47551c8ce98
+Update the module with Alice's address, compile, and press enter.
+
+
+ubuntu@ip-172-31-36-63:~/aptos-core/ecosystem/typescript/sdk/examples/typescript$ pnpm your_fungible_asset ~/aptos-core/aptos-move/move-examples/fungible_asset/fa_coin
+
+> ts-test@1.0.0 your_fungible_asset /home/ubuntu/aptos-core/ecosystem/typescript/sdk/examples/typescript
+> ts-node your_fungible_asset.ts "/hom
+
+# now start a new terminal 
+
+cd ~/aptos-core/aptos-move/move-examples/fungible_asset/fa_coin
+
+aptos move compile --named-addresses FACoin=0x0cd38741e80d794772fc5890e39f2b9d2d3f28246489960b790d7b4d270ab6b5 --save-metadata
+
+ubuntu@ip-172-31-36-63:~/aptos-core/aptos-move/move-examples/fungible_asset/fa_coin$ aptos move compile --named-addresses FACoin=0x0cd38741e80d794772fc5890e39f2b9d2d3f28246489960b790d7b4d270ab6b5 --save-metadata
+Compiling, may take a little while to download git dependencies...
+INCLUDING DEPENDENCY AptosFramework
+INCLUDING DEPENDENCY AptosStdlib
+INCLUDING DEPENDENCY MoveStdlib
+BUILDING Examples
+{
+  "Result": [
+    "0cd38741e80d794772fc5890e39f2b9d2d3f28246489960b790d7b4d270ab6b5::fa_coin"
+  ]
+}
+
+
+
+# now go back to the first terminal and hit <enter>
+
+Publishing FACoin package.
+
+All the balances in this exmaple refer to balance in primary fungible stores of each account.
+Alice's initial FACoin balance: 0.
+Bob's initial FACoin balance: 0.
+Charlie's initial balance: 0.
+Alice mints Charlie 100 coins.
+Charlie's updated FACoin primary fungible store balance: 100.
+Alice freezes Bob's account.
+Alice as the admin forcefully transfers the newly minted coins of Charlie to Bob ignoring that Bob's account is frozen.
+Bob's updated FACoin balance: 100.
+Alice unfreezes Bob's account.
+Alice burns 50 coins from Bob.
+Bob's updated FACoin balance: 50.
+Bob transfers 10 coins to Alice as the owner.
+Alice's updated FACoin balance: 10.
+Bob's updated FACoin balance: 40.
+done.
+undefined
+ubuntu@ip-172-31-36-63:~/aptos-core/ecosystem/typescript/sdk/examples/typescript$
+
+
+# now validate the transaction on devnet
+
+https://explorer.aptoslabs.com/
+
+
+https://explorer.aptoslabs.com/account/0cd38741e80d794772fc5890e39f2b9d2d3f28246489960b790d7b4d270ab6b5?network=devnet
