@@ -1,0 +1,1 @@
+cmd_Release/nothing.a := ln -f "Release/obj.target/../../../node-addon-api@3.2.1/node_modules/node-addon-api/nothing.a" "Release/nothing.a" 2>/dev/null || (rm -rf "Release/nothing.a" && cp -af "Release/obj.target/../../../node-addon-api@3.2.1/node_modules/node-addon-api/nothing.a" "Release/nothing.a")

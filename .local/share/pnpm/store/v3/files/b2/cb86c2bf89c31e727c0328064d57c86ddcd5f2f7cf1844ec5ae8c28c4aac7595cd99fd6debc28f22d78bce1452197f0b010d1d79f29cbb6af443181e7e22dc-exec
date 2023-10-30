@@ -1,0 +1,32 @@
+{
+    "name": "@types/ref-napi",
+    "version": "3.0.7",
+    "description": "TypeScript definitions for ref-napi",
+    "homepage": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/ref-napi",
+    "license": "MIT",
+    "contributors": [
+        {
+            "name": "Keerthi Niranjan",
+            "url": "https://github.com/keerthi16",
+            "githubUsername": "keerthi16"
+        },
+        {
+            "name": "Kiran Niranjan",
+            "url": "https://github.com/KiranNiranjan",
+            "githubUsername": "KiranNiranjan"
+        }
+    ],
+    "main": "",
+    "types": "index.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+        "directory": "types/ref-napi"
+    },
+    "scripts": {},
+    "dependencies": {
+        "@types/node": "*"
+    },
+    "typesPublisherContentHash": "5a994d5bbe9690b22959455d46c114f5d7c02dd5408d271084f727aec22a3ddc",
+    "typeScriptVersion": "4.2"
+}
